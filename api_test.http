@@ -1,0 +1,46 @@
+### 地址生成
+POST http://localhost:1669/rpc/v0
+Content-Type: application/json
+
+{
+  "jsonrpc":"2.0",
+  "method":"UPAY.NewAddress",
+  "params":["TEST", "Filecoin"],
+  "id":1
+}
+
+### 获取余额
+POST http://localhost:1669/rpc/v0
+Content-Type: application/json
+
+{
+  "jsonrpc":"2.0",
+  "method":"UPAY.GetBalance",
+  "params":[
+    {
+      "chain": "Filecoin",
+      "symbol": "Fil",
+      "address": "f1xxtq2mhmlgsqbatndgdhfqutlmn7kwmk2dthl6q"
+    }
+  ],
+  "id":1
+}
+
+### 出款
+POST http://localhost:1669/rpc/v0
+Content-Type: application/json
+
+{
+  "jsonrpc":"2.0",
+  "method":"UPAY.Drawing",
+  "params":[
+    {
+      "chain": "Filecoin",
+      "app_id": "TEST",
+      "symbol": "Fil",
+      "to": "f1xxtq2mhmlgsqbatndgdhfqutlmn7kwmk2dthl6q",
+      "value": 0.01
+    }
+  ],
+  "id":1
+}
